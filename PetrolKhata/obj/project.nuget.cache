@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "B0weO2d34S2fXmSqrLp+LgWp3yGjAc7I57v4rlrqEyq8oWa8p2TVn5L8guExo/3rIyGlX65NPiLS3sdEMHQHZw==",
+  "dgSpecHash": "QDdx++g3uBAozeP1UoVM54fxsjkgcow3Dn0N62dlVOQUMRCCxiknQ/5hceqeeBuH12uj3ws+/h32NvV/ST7koA==",
   "success": true,
-  "projectFilePath": "D:\\FullStackProject\\API\\PetrolKhata\\FuelKhata\\PetrolKhata\\PetrolKhata.csproj",
+  "projectFilePath": "D:\\FullStackProject\\API\\PetrolKhata\\PetrolKhata\\PetrolKhata.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asus\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

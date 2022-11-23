@@ -36,7 +36,9 @@ namespace PetrolKhata.Controllers
             Customer customer = new Customer();
             customer.FirstName = value.FirstName;
             customer.LastName = value.LastName; 
-
+            customer.Address = value.Address;
+            customer.PhoneNumber = value.PhoneNumber;
+            customer.IsDelete = false;
 
             return Ok(customer);
         }

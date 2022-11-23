@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FullStackProject\\API\\PetrolKhata\\FuelKhata\\PetrolKhata\\PetrolKhata.csproj": {}
+    "D:\\FullStackProject\\API\\PetrolKhata\\PetrolKhata\\PetrolKhata.csproj": {}
   },
   "projects": {
-    "D:\\FullStackProject\\API\\PetrolKhata\\FuelKhata\\PetrolKhata\\PetrolKhata.csproj": {
+    "D:\\FullStackProject\\API\\PetrolKhata\\PetrolKhata\\PetrolKhata.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FullStackProject\\API\\PetrolKhata\\FuelKhata\\PetrolKhata\\PetrolKhata.csproj",
+        "projectUniqueName": "D:\\FullStackProject\\API\\PetrolKhata\\PetrolKhata\\PetrolKhata.csproj",
         "projectName": "PetrolKhata",
-        "projectPath": "D:\\FullStackProject\\API\\PetrolKhata\\FuelKhata\\PetrolKhata\\PetrolKhata.csproj",
+        "projectPath": "D:\\FullStackProject\\API\\PetrolKhata\\PetrolKhata\\PetrolKhata.csproj",
         "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "D:\\FullStackProject\\API\\PetrolKhata\\FuelKhata\\PetrolKhata\\obj\\",
+        "outputPath": "D:\\FullStackProject\\API\\PetrolKhata\\PetrolKhata\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",

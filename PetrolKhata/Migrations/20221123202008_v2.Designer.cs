@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PetrolKhata.Data;
 
@@ -11,9 +12,11 @@ using PetrolKhata.Data;
 namespace PetrolKhata.Migrations
 {
     [DbContext(typeof(FuelKhataDbContext))]
-    partial class FuelKhataDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221123202008_v2")]
+    partial class v2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,6 +41,9 @@ namespace PetrolKhata.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("FuelTypeId")
+                        .HasColumnType("int");
+
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
 
@@ -50,6 +56,8 @@ namespace PetrolKhata.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("FuelTypeId");
 
                     b.ToTable("Customers");
                 });
@@ -107,6 +115,13 @@ namespace PetrolKhata.Migrations
                     b.ToTable("Sale");
                 });
 
+            modelBuilder.Entity("PetrolKhata.Model.Customer", b =>
+                {
+                    b.HasOne("PetrolKhata.Model.FuelType", null)
+                        .WithMany("Customers")
+                        .HasForeignKey("FuelTypeId");
+                });
+
             modelBuilder.Entity("PetrolKhata.Model.Sales", b =>
                 {
                     b.HasOne("PetrolKhata.Model.Customer", null)
@@ -129,6 +144,8 @@ namespace PetrolKhata.Migrations
 
             modelBuilder.Entity("PetrolKhata.Model.FuelType", b =>
                 {
+                    b.Navigation("Customers");
+
                     b.Navigation("Sales");
                 });
 #pragma warning restore 612, 618
