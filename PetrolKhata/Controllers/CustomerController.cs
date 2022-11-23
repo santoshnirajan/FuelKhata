@@ -39,6 +39,7 @@ namespace PetrolKhata.Controllers
             customer.Address = value.Address;
             customer.PhoneNumber = value.PhoneNumber;
             customer.IsDelete = false;
+            dbContext.SaveChanges();
 
             return Ok(customer);
         }

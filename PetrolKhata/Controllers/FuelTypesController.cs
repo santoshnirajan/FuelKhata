@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PetrolKhata.Data;
+using PetrolKhata.Model;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -31,8 +32,13 @@ namespace PetrolKhata.Controllers
 
         // POST api/<FuelTypesController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post([FromBody] FuelType value)
         {
+            FuelType fuelType = new FuelType();
+            fuelType.Fuel = value.Fuel;
+            dbContext.Add(fuelType);
+            dbContext.SaveChanges();
+            return Ok(fuelType);
         }
 
         // PUT api/<FuelTypesController>/5
