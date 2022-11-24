@@ -9,10 +9,13 @@
         public string PhoneNumber { get; set; }
         public bool IsDelete { get; set; }
         public ICollection<Sales>Sales { get; set; }
+
         public Customer()
         {
           
             IsDelete = false;
+           Sales = new HashSet<Sales>();
         }
+
     }
 }
