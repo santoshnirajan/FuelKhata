@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PetrolKhata.Data;
+using PetrolKhata.Model;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -10,15 +11,16 @@ namespace PetrolKhata.Controllers
     public class SalesController : ControllerBase
     {
         public FuelKhataDbContext dbContext;
-        public SalesController (FuelKhataDbContext dbContext)
+        public SalesController(FuelKhataDbContext dbContext)
         {
-           this. dbContext = dbContext;
+            this.dbContext = dbContext;
         }
         // GET: api/<SalesController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            var salesList=dbContext.Sale.ToList();
+            return Ok(salesList);
         }
 
         // GET api/<SalesController>/5
@@ -29,9 +31,19 @@ namespace PetrolKhata.Controllers
         }
 
         // POST api/<SalesController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [HttpPost("{fuelId}/{customerId}")]
+        public IActionResult Post([FromBody] Sales value, int fuelId, int customerId)
         {
+            Sales sales = new Sales();
+            sales.Date = value.Date;
+            sales.Quantity = value.Quantity;
+            sales.TotalRate = value.TotalRate;
+            sales.Remarks = value.Remarks;
+            sales.CustomerId = customerId;
+            sales.FuelId = fuelId;
+            dbContext.Add(sales);
+            dbContext.SaveChanges();
+            return Ok(sales);
         }
 
         // PUT api/<SalesController>/5
