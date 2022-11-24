@@ -8,9 +8,9 @@ namespace PetrolKhata.Data
         public FuelKhataDbContext(DbContextOptions<FuelKhataDbContext> options) : base(options)
         {
         }
-        DbSet<Customer> Customers { get; set; }
-        DbSet<FuelType> FuelTypes { get; set; }
-        DbSet<Sales> Sale { get; set; }
+       public  DbSet<Customer> Customers { get; set; }
+       public  DbSet<FuelType> FuelTypes { get; set; }
+       public  DbSet<Sales> Sale { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

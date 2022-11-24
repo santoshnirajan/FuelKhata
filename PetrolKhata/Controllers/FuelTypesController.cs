@@ -18,16 +18,18 @@ namespace PetrolKhata.Controllers
 
         // GET: api/<FuelTypesController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            var fueltypelist= dbContext.FuelTypes.ToList();
+            return Ok (fueltypelist);
         }
 
         // GET api/<FuelTypesController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IActionResult Get(int id)
         {
-            return "value";
+            var selectedFuelType =dbContext.FuelTypes.FirstOrDefault(f => f.Id == id);
+            return Ok (selectedFuelType);
         }
 
         // POST api/<FuelTypesController>

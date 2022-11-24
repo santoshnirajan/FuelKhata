@@ -11,22 +11,24 @@ namespace PetrolKhata.Controllers
     public class CustomerController : ControllerBase
     {
         public FuelKhataDbContext dbContext;
-        public CustomerController(FuelKhataDbContext dbContext)
+        public CustomerController(FuelKhataDbContext _dbContext)
         {
-            this.dbContext = dbContext;
+            this.dbContext = _dbContext;
         }
         // GET: api/<CustomerController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            var customerList = dbContext.Customers.ToList();
+            return Ok(customerList);
         }
 
         // GET api/<CustomerController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IActionResult Get(int id)
         {
-            return "value";
+            var selectedCustomer=dbContext.Customers.SingleOrDefault(x => x.Id == id);
+            return Ok(selectedCustomer);
         }
 
         // POST api/<CustomerController>
