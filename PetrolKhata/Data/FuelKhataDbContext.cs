@@ -14,9 +14,15 @@ namespace PetrolKhata.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Sales>().HasOne<FuelType>().WithMany(x => x.Sales).HasForeignKey(x => x.FuelId);
+            base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Sales>().HasOne<Customer>().WithMany(x => x.Sales).HasForeignKey(x => x.CustomerId) ;
+            modelBuilder.Entity<Customer>().ToTable("Customers");
+            modelBuilder.Entity<FuelType>().ToTable("FuelTypes");
+            modelBuilder.Entity<Sales>().ToTable("Sales");
+
+            //modelBuilder.Entity<Sales>().HasOne<FuelType>().WithMany(x => x.Sales).HasForeignKey(x => x.FuelId);
+
+            //modelBuilder.Entity<Sales>().HasOne<Customer>().WithMany(x => x.Sales).HasForeignKey(x => x.CustomerId) ;
         }
     }
 }

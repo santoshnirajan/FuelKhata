@@ -38,6 +38,7 @@ namespace PetrolKhata.Controllers
         {
             FuelType fuelType = new FuelType();
             fuelType.Fuel = value.Fuel;
+            fuelType.Rate = value.Rate;
             dbContext.Add(fuelType);
             dbContext.SaveChanges();
             return Ok(fuelType);
