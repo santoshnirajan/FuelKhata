@@ -19,7 +19,7 @@ namespace PetrolKhata.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var customerList = dbContext.Customers.ToList();
+            var customerList = dbContext.Customers.Where(x=>x.IsDelete==false).ToList();
             return Ok(customerList);
         }
 
@@ -49,14 +49,26 @@ namespace PetrolKhata.Controllers
 
         // PUT api/<CustomerController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Put(int id, [FromBody] Customer value)
         {
+            var customer = dbContext.Customers.Where(x => x.Id == id).FirstOrDefault();
+            customer.FirstName = value.FirstName;
+            customer.LastName = value.LastName;
+            customer.Address = value.Address;
+            customer.PhoneNumber = value.PhoneNumber;
+            customer.IsDelete = false;
+            dbContext.SaveChanges();
+
+            return Ok(customer);
         }
 
         // DELETE api/<CustomerController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            var customer = dbContext.Customers.Where(x => x.Id == id).FirstOrDefault();
+            customer.IsDelete = true;
+            dbContext.SaveChanges();
         }
 
         public static implicit operator CustomerController(FuelKhataDbContext v)
