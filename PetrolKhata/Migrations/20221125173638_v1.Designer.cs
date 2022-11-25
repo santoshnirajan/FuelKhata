@@ -11,8 +11,8 @@ using PetrolKhata.Data;
 namespace PetrolKhata.Migrations
 {
     [DbContext(typeof(FuelKhataDbContext))]
-    [Migration("20221125153042_petrolPumpSales-v1")]
-    partial class petrolPumpSalesv1
+    [Migration("20221125173638_v1")]
+    partial class v1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
